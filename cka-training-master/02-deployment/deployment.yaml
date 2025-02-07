@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    run: my1stdeployment
+  name: my1stdeployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: my1stdeployment
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: my1stdeployment
+    spec:
+      containers:
+      - image: sirfragalot/docker-demo:dcus
+        name: my1stdeployment
+        resources: {}
+status: {}

@@ -1,0 +1,1 @@
+Deploy a nginx pod onto one of your worker nodes (static pod)
