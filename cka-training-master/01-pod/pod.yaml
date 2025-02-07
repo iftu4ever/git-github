@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: my1stpod
+  name: my1stpod
+spec:
+  containers:
+  - image: sirfragalot/docker-demo:dcus
+    name: my1stpod
+    resources: {}

@@ -1,0 +1,52 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  creationTimestamp: null
+  name: my1stnamespace
+spec: {}
+status: {}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    run: my1stdeployment
+  name: my1stdeployment
+  namespace: my1stnamespace
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      run: my1stdeployment
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: my1stdeployment
+    spec:
+      containers:
+      - image: nginx
+        name: sirfragalot/docker-demo:dcus
+        resources: {}
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    run: my1stdeployment
+  name: my1stdeployment
+  namespace: my1stnamespace
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    run: my1stdeployment
+  type: NodePort
+status:
+  loadBalancer: {}
